@@ -1,0 +1,63 @@
+package QuanLiNhanVien;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jdk.javadoc.internal.doclets.toolkit.taglets.SummaryTaglet;
+
+public class SoftwareHouse {
+	private String theName;
+	private List<Employee> listEmployee;
+
+	public String getTheName() {
+		return theName;
+	}
+
+	public void setTheName(String theName) {
+		this.theName = theName;
+	}
+
+	public SoftwareHouse(String theName) {
+		super();
+		setTheName(theName);
+		listEmployee = new ArrayList<Employee>();
+	}
+
+	@Override
+	public String toString() {
+		return "SoftwareHouse [theName=" + theName + "]";
+	}
+
+	// Thêm nhân viên
+	public boolean addEmployee(Employee employee) {
+		if (listEmployee.contains(employee))
+			return false;
+		else {
+			listEmployee.add(employee);
+			return true;
+		}
+	}
+
+	// Tính tổng tiền phải trả cho nhân viên
+	public double getMonthlySalaryBill() {
+		int sum = 0;
+		for (Employee employee : listEmployee) {
+			sum += employee.getMonthlySalary();
+		}
+		
+		return sum;
+	}
+
+	//Lấy danh sách các lập trình viên
+	public List<Employee> displayListProgrammers() {
+		List<Employee> list = new ArrayList<Employee>();
+		
+		for (Employee employee : listEmployee) {
+			if (employee instanceof Programmer) {
+				list.add(employee);
+			}
+		}
+		
+		return list;
+	}
+}

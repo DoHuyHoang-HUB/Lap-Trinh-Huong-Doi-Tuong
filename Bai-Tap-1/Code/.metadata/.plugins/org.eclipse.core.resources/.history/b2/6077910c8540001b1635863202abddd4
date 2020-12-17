@@ -1,0 +1,155 @@
+/**
+ * 
+ */
+package QuanLiNhanVien;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Scanner;
+
+/**
+ * @author Nguyen-Hung
+ *
+ */
+public class Test {
+	public static void main(String[] args) {
+		SoftwareHouse listEmployee = new SoftwareHouse("aName");
+
+		Scanner scanner = new Scanner(System.in);
+		int chon;
+		do {
+			System.out.println("1.ThÃªm nhÃ¢n viÃªn.");
+			System.out.println("2.Xuáº¥t danh sÃ¡ch cÃ¡c nhÃ¢n viÃªn.");
+			System.out.println("3.Tá»•ng tiá»�n lÆ°Æ¡ng pháº£i cho cho nhÃ¢n viÃªn.");
+			System.out.println("4.Sáº¯p xáº¿p danh sÃ¡ch nhÃ¢n viÃªn theo tÃªn.");
+			System.out.println("5.Xuáº¥t danh sÃ¡ch láº­p trÃ¬nh viÃªn.");
+			System.out.println("6.Cáº­p nháº­t phÃ²ng ban cá»§a NgÆ°á»�i quáº£n lÃ­.");
+			System.out.println("7.XÃ³a nhÃ¢n viÃªn.");
+			System.out.println("0.ThoÃ¡t.");
+			System.out.println("Chá»�n chá»©c nÄƒng:");
+			chon = scanner.nextInt();
+
+			switch (chon) {
+
+			case 0:
+				continue;
+			case 1: {
+
+				System.out.println("1.ThÃªm láº­p trÃ¬nh viÃªn.");
+				System.out.println("2.ThÃªm trÆ°á»Ÿng dá»± Ã¡n.");
+				System.out.println("3.ThÃªm ngÆ°á»�i quáº£n lÃ­.");
+				int case1 = scanner.nextInt();
+
+				System.out.print("Nháº­p mÃ£ sá»‘:");
+				int thePayrollNumber = scanner.nextInt();
+
+				String temString = scanner.nextLine();
+				System.out.print("Nháº­p tÃªn:");
+				String theName = scanner.nextLine();
+				System.out.print("Nháº­p lÆ°Æ¡ng cÆ¡ báº£n:");
+				double theBasicMonthlySalary = scanner.nextDouble();
+
+				switch (case1) {
+				case 0:
+					return;
+
+				case 1: {
+					System.out.print("NgÃ´n ngá»¯ láº­p trÃ¬nh:");
+					String tempString = scanner.nextLine();
+					String theLanguage = scanner.nextLine();
+
+					listEmployee
+							.addEmployee(new Programmer(thePayrollNumber, theName, theBasicMonthlySalary, theLanguage));
+				}
+					break;
+
+				case 2: {
+					System.out.print("NgÃ´n ngá»¯ láº­p trÃ¬nh:");
+					String tempString = scanner.nextLine();
+					String theLanguage = scanner.nextLine();
+					listEmployee.addEmployee(
+							new ProjectLeader(thePayrollNumber, theName, theBasicMonthlySalary, theLanguage));
+				}
+					break;
+
+				case 3: {
+					String tempString = scanner.nextLine();
+					System.out.print("Nháº­p phÃ²ng ban:");
+					String theDepartment = scanner.nextLine();
+
+					listEmployee.addEmployee(
+							new Administrator(thePayrollNumber, theName, theBasicMonthlySalary, theDepartment));
+				}
+					break;
+
+				default:
+					System.out.println("KhÃ´ng cÃ³ chá»©c nÄƒng nÃ y.");
+					break;
+				}
+			}
+				break;
+
+//
+			case 2: {
+				System.out.println("Danh sÃ¡ch nhÃ¢n viÃªn:");
+				listEmployee.displayAllStaff();
+
+			}
+				break;
+
+			case 3: {
+				Locale locale = new Locale("en", "US");
+				NumberFormat formatMoney = NumberFormat.getCurrencyInstance(locale);
+				
+				System.out.println("Tá»•ng tiá»�n lÆ°Æ¡ng cá»§a cÃ¡c nhÃ¢n viÃªn:" + formatMoney.format(listEmployee.getMonthlySalaryBill()));
+			}
+				break;
+
+			case 4: {
+				listEmployee.sortAllStaffByName();
+				System.out.println("Danh sÃ¡ch sau khi sáº¯p xáº¿p:");
+				listEmployee.displayAllStaff();
+			}
+				break;
+
+			case 5: {
+				System.out.println("Danh sÃ¡ch láº­p trÃ¬nh viÃªn:");
+				listEmployee.displayListProgrammers();
+			}
+				break;
+
+			case 6: {
+				System.out.println("Nháº­p mÃ£ sá»‘:");
+				int aPayrollNo = scanner.nextInt();
+				
+				String tempString = scanner.nextLine();
+				System.out.print("Nháº­p phÃ²ng ban má»›i:");
+				String deptNew = scanner.nextLine();
+				if(listEmployee.updateDepartmentForAdmin(aPayrollNo, deptNew))
+					System.out.println("Cáº­p nháº­t thÃ nh cÃ´ng.");
+				else
+					System.out.println("KhÃ´ng tÃ¬m tháº¥y mÃ£.");
+			}
+				break;
+
+			case 7: {
+				System.out.println("Nháº­p mÃ£ cáº§n xÃ³a:");
+				int id = scanner.nextInt();
+				if(listEmployee.deleteEmployee(id))
+					System.out.println("XÃ³a thÃ nh cÃ´ng.");
+				else
+					System.out.println("KhÃ´ng tÃ¬m tháº¥y mÃ£");
+			}
+				break;
+
+			default:
+				System.out.println("KhÃ´ng cÃ³ chá»©c nÄƒng nÃ y.");
+				break;
+			}
+			
+			System.out.println("_______________________________________");
+		} while (chon != 0);
+
+		scanner.close();
+	}
+}

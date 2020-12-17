@@ -1,0 +1,10 @@
+package QuanLiNhanVien;
+
+public class ProjectLeader extends Programmer{
+		
+	@Override
+	public double getMonthlySalary() {
+		// TODO Auto-generated method stub
+		return super.getMonthlySalary();
+	}
+}

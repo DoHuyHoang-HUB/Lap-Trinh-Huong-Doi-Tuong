@@ -1,0 +1,35 @@
+package QuanLiNhanVien;
+
+public class Programmer extends Employee{
+	protected String theLanguage;
+	
+	public String getTheLanguage() {
+		return theLanguage;
+	}
+
+	public void setTheLanguage(String theLanguage) {
+		this.theLanguage = theLanguage;
+	}
+
+	public Programmer(int thePayrollNumber, String theName, double theBasicMonthlySalary, String theLanguage) {
+		super(thePayrollNumber, theName, theBasicMonthlySalary);
+		setTheLanguage(theLanguage);
+	}
+	
+	public Programmer() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Programmer [theLanguage=" + theLanguage + "]";
+	}
+
+	@Override
+	public double getMonthlySalary() {
+		if(theLanguage.equalsIgnoreCase("java"));
+			return super.getTheBasicMonthlySalary() + 0.2*super.getTheBasicMonthlySalary();
+			return super.getTheBasicMonthlySalary() + 0.4*super.getTheBasicMonthlySalary();
+	}
+	
+}

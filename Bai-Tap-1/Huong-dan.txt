@@ -1,0 +1,41 @@
+	Bài 7.
+
+	Hiện thực theo mô hình lớp bên dưới bằng ngôn ngữ lập trình Java.
+	Đây là một phần ứng dụng quản lý nhân viên trong một công ty phần mềm (SoftwareHouse). Công ty có
+	nhiều nhân viên. Mỗi nhân viên (Employee) cần lưu trữ các thông tin: Mã số (thePayrollNumber), tên nhân viên
+	(theName), lương cơ bản hằng tháng (theBasicMonthlySalary). Mã số của mỗi nhân viên chỉ được tạo một lần
+	duy nhất và không được phép sửa. (mô hình kèm theo trong hình ảnh)
+
+
+	a. Nhân viên trong công ty gồm: Lập trình viên (Programmer), Người quản lý (Administrator) và Người
+	trưởng dự án (ProjectLeader).
+
+	- Tạo các phương thức setters/getters cho các thuộc tính của các lớp.
+	- Tiền lương hằng tháng (getMonthlySalary) là tiền lương cơ bản + phụ cấp. Phụ cấp được tính như sau:
+	- Lập trình viên: Nếu ngôn ngữ lập trình là “Java” thì phụ cấp 20% của lương cơ bản.
+	- Người quản lý: Phụ cấp 40% của lương cơ bản
+	- Người trưởng dự án: Phụ cấp 20% lương cơ bản.
+
+	b. Công ty phần mềm (SoftwareHouse) có tên gọi (theName), và danh sách các nhân viên. Tạo:
+
+		1. Constructor SofwareHouse(aName : String), tạo một công ty có tên là aName và khởi tạo danh sách
+		nhân viên (mỗi phần tử trong mảng là một nhân viên).
+
+		2. Phương thức addEmployee(emp : Employee): boolean, dùng để thêm một nhân viên emp vào công ty.
+		Thêm thành công nếu không trùng mã số.
+
+		3. Phương thức displayAllStaff():  hiển thị toàn bộ nhân viên trong công ty lên màn hình theo dạng
+		cột, định dạng đơn vị tiền tệ là $, phân cách hàng nghìn.
+
+		4. Phương thức getMonthlySalaryBill(): double, tính tổng tiền phải trả cho các nhân viên.
+
+		5. Phương thức sortAllStaffByName(): void, sắp xếp danh sách nhân viên theo tên.
+
+		6. Phương thức displayListProgrammers():  hiển thị danh sách các lập trình viên.
+
+		7. Phương thức updateDepartmentForAdmin(aPayrollNo: int, deptNew: String): boolean, cập nhật phòng
+		ban là deptNew cho người quản lý có mã số là aPayrollNo, trả về true nếu cập nhật thành công.
+
+		8. Phương thức deleteEmployee(id : int): boolean, xóa nhân viên theo mã số, trả về true nếu xóa được.
+
+	c. Viết chương trình chính tạo menu case để thực hiện các chức năng trong câu b.

@@ -1,0 +1,7 @@
+package QuanLiNhanVien;
+
+public class Programmer {
+	protected String theLanguage;
+	
+	
+}

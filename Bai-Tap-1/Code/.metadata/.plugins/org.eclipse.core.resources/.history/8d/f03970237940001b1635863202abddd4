@@ -1,0 +1,43 @@
+package QuanLiNhanVien;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SoftwareHouse {
+	private String theName;
+	private List<Employee> listEmployee;
+
+	public String getTheName() {
+		return theName;
+	}
+
+	public void setTheName(String theName) {
+		this.theName = theName;
+	}
+
+	public SoftwareHouse(String theName) {
+		super();
+		setTheName(theName);
+		listEmployee = new ArrayList<Employee>();
+	}
+
+	@Override
+	public String toString() {
+		return "SoftwareHouse [theName=" + theName + "]";
+	}
+	
+	//Thêm nhân viên
+	public boolean addEmployee(Employee employee) {
+		if(listEmployee.contains(employee))
+			return false;
+		else {
+			listEmployee.add(employee);
+			return true;
+		}
+	}
+	
+	public List<Employee> displayAllStaff() {
+		List<Employee> list = new ArrayList<Employee>();
+		
+	}
+}

@@ -1,0 +1,6 @@
+package QuanLiNhanVien;
+
+public class SoftwareHouse {
+	private String theName;
+	
+}

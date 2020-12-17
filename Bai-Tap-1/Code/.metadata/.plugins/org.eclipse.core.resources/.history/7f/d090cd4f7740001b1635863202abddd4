@@ -1,0 +1,32 @@
+package QuanLiNhanVien;
+
+public class Administrator extends Employee{
+	private String theDepartment;
+
+	public String getTheDepartment() {
+		return theDepartment;
+	}
+
+	public void setTheDepartment(String theDepartment) {
+		this.theDepartment = theDepartment;
+	}
+
+	public Administrator(int thePayrollNumber, String theName, double theBasicMonthlySalary, String theDepartment) {
+		super(thePayrollNumber, theName, theBasicMonthlySalary);
+		setTheDepartment(theDepartment);
+	}
+	
+	public Administrator() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Administrator [theDepartment=" + theDepartment + "]";
+	}
+
+	@Override
+	public double getMonthlySalary() {
+		return 
+	}	
+}
