@@ -61,7 +61,7 @@ public abstract class Employee {
 			return true;
 		if (obj == null)
 			return false;
-//		if (getClass() != obj.getClass()) //nếu trùng mã ở tất cả các lớp ...
+//		if (getClass() != obj.getClass())
 //			return false;
 		Employee other = (Employee) obj;
 		if (thePayrollNumber != other.thePayrollNumber)

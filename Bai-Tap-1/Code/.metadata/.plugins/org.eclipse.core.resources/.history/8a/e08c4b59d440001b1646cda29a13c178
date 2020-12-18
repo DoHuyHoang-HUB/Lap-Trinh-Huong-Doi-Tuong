@@ -64,7 +64,7 @@ public class SoftwareHouse {
 		return sum;
 	}
 
-	//sap xep theo ten
+	//
 	public void sortAllStaffByName() {
 		Collections.sort(listEmployee, new Comparator<Employee>() {
 
@@ -74,16 +74,16 @@ public class SoftwareHouse {
 			}
 		});
 	}
-	//sap xep theo ma (kieu int)
-//	public void sortAllStaffByName() {
-//		Collections.sort(listEmployee, new Comparator<Employee>() {
-//
-//			@Override
-//			public int compare(Employee o1, Employee o2) {
-//				return Integer.compare(o1, o)
-//			}
-//		});
-//	}
+	
+	public void sortAllStaffByName() {
+		Collections.sort(listEmployee, new Comparator<Employee>() {
+
+			@Override
+			public int compare(Employee o1, Employee o2) {
+				return Integer.compare(o1, o)
+			}
+		});
+	}
 
 	// Lấy danh sách các lập trình viên
 	public SoftwareHouse displayListProgrammers() {

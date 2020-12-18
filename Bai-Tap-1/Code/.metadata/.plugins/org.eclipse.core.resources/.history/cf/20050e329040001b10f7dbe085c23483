@@ -6,17 +6,12 @@ import java.util.Locale;
 public class Programmer extends Employee {
 	protected String theLanguage;
 
+	
 
-	/**
-	 * @return the theLanguage
-	 */
 	public String getTheLanguage() {
 		return theLanguage;
 	}
 
-	/**
-	 * @param theLanguage the theLanguage to set
-	 */
 	public void setTheLanguage(String theLanguage) {
 		this.theLanguage = theLanguage;
 	}
